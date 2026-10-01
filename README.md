@@ -1,4 +1,4 @@
-# 🩺 Disease Prediction Using Machine Learning
+<img width="1920" height="1020" alt="Screenshot 2026-10-01 153537" src="https://github.com/user-attachments/assets/35eeb678-9d3e-4db1-b659-1a52539407a6" /># 🩺 Disease Prediction Using Machine Learning
 
 An end-to-end machine learning web application that predicts the most likely disease based on user-selected symptoms.
 
@@ -64,9 +64,7 @@ The main objectives of this project are:
 The application provides a clean interface where users can enter optional patient information and select symptoms for prediction.
 
 
-
-!\[Disease Prediction Home Page](screenshots/home-page.png)
-
+<img width="1920" height="1020" alt="Screenshot 2026-10-01 153448" src="https://github.com/user-attachments/assets/f89fa957-02d7-4863-a97a-7e1b1d16d4c3" />
 
 
 \---
@@ -81,7 +79,8 @@ Users can search through 131 available symptoms, select multiple symptoms, and r
 
 
 
-!\[Symptom Selection](screenshots/symptom-selection.png)
+<img width="1920" height="1020" alt="Screenshot 2026-10-01 153532" src="https://github.com/user-attachments/assets/d0dc3834-e42a-4e5c-aa6d-141a40de85ff" />
+
 
 
 
@@ -97,7 +96,8 @@ The application displays the predicted condition, confidence score, confidence l
 
 
 
-!\[Prediction Result](screenshots/prediction-result.png)
+<img width="1920" height="1020" alt="Screenshot 2026-10-01 153537" src="https://github.com/user-attachments/assets/8fd491b0-94c1-47d5-83f9-6710cd48644f" />
+
 
 ## 🧠 Machine Learning Approach
 
