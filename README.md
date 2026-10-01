@@ -1,4 +1,4 @@
-<img width="1920" height="1020" alt="Screenshot 2026-10-01 153537" src="https://github.com/user-attachments/assets/35eeb678-9d3e-4db1-b659-1a52539407a6" /># 🩺 Disease Prediction Using Machine Learning
+🩺 Disease Prediction Using Machine Learning
 
 An end-to-end machine learning web application that predicts the most likely disease based on user-selected symptoms.
 
