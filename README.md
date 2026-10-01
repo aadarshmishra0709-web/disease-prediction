@@ -4,11 +4,11 @@ An end-to-end machine learning web application that predicts the most likely dis
 
 The system uses an **ensemble of seven machine learning models** and combines their predicted probabilities to generate the final prediction. A Flask-based web interface allows users to select symptoms, submit them for analysis, and view the predicted disease, confidence level, probability distribution, and individual model predictions.
 
-> **⚠️ Educational / Research Use Only**
+> \*\*⚠️ Educational / Research Use Only\*\*
 >
-> This application is developed for educational and research purposes. It is **not a medical diagnostic system** and should not be used as a substitute for professional medical advice, diagnosis, or treatment.
+> This application is developed for educational and research purposes. It is \*\*not a medical diagnostic system\*\* and should not be used as a substitute for professional medical advice, diagnosis, or treatment.
 
----
+\---
 
 ## 🌐 Live Demo
 
@@ -18,7 +18,7 @@ https://disease-prediction-xlb3.onrender.com
 **Source Code:**  
 https://github.com/aadarshmishra0709-web/disease-prediction
 
----
+\---
 
 ## 📌 Project Overview
 
@@ -26,19 +26,19 @@ Disease diagnosis can involve a large number of possible conditions with overlap
 
 The system currently supports:
 
-- **131 symptoms**
-- **41 disease classes**
-- **7 machine learning models**
-- Ensemble prediction using **average class probabilities**
-- Confidence estimation
-- Top predicted conditions
-- Individual model predictions
-- Symptom search and selection
-- Responsive web interface
-- Flask REST API
-- Cloud deployment using Render
+* **131 symptoms**
+* **41 disease classes**
+* **7 machine learning models**
+* Ensemble prediction using **average class probabilities**
+* Confidence estimation
+* Top predicted conditions
+* Individual model predictions
+* Symptom search and selection
+* Responsive web interface
+* Flask REST API
+* Cloud deployment using Render
 
----
+\---
 
 ## 🎯 Objectives
 
@@ -51,21 +51,67 @@ The main objectives of this project are:
 5. Display prediction confidence and supporting probability information.
 6. Deploy the application as a publicly accessible web service.
 
----
+\---
+
+\## 📸 Application Screenshots
+
+
+
+\### 🏠 Home Page
+
+
+
+The application provides a clean interface where users can enter optional patient information and select symptoms for prediction.
+
+
+
+!\[Disease Prediction Home Page](screenshots/home-page.png)
+
+
+
+\---
+
+
+
+\### 🩺 Symptom Selection
+
+
+
+Users can search through 131 available symptoms, select multiple symptoms, and review their selected symptoms before running the prediction.
+
+
+
+!\[Symptom Selection](screenshots/symptom-selection.png)
+
+
+
+\---
+
+
+
+\### 📊 Prediction Result
+
+
+
+The application displays the predicted condition, confidence score, confidence level, most likely conditions, and individual model predictions.
+
+
+
+!\[Prediction Result](screenshots/prediction-result.png)
 
 ## 🧠 Machine Learning Approach
 
 The system uses seven trained classification models:
 
-| Model                     | Purpose                                  |
-| ------------------------- | ---------------------------------------- |
-| Logistic Regression       | Linear classification baseline           |
-| Decision Tree             | Rule-based classification                |
-| Random Forest             | Ensemble of decision trees               |
-| Gradient Boosting         | Sequential boosting-based classification |
-| K-Nearest Neighbors       | Distance-based classification            |
-| Support Vector Classifier | Margin-based classification              |
-| Naive Bayes               | Probabilistic classification             |
+|Model|Purpose|
+|-|-|
+|Logistic Regression|Linear classification baseline|
+|Decision Tree|Rule-based classification|
+|Random Forest|Ensemble of decision trees|
+|Gradient Boosting|Sequential boosting-based classification|
+|K-Nearest Neighbors|Distance-based classification|
+|Support Vector Classifier|Margin-based classification|
+|Naive Bayes|Probabilistic classification|
 
 Instead of relying on a single model, the application obtains the class probabilities from every model and calculates their average.
 
@@ -106,7 +152,7 @@ User Symptoms ──────┼── Gradient Boosting ─────┤
 
 This approach provides a combined prediction rather than depending on the output of only one classifier.
 
----
+\---
 
 ## 🔄 System Workflow
 
@@ -153,7 +199,7 @@ Final Disease Prediction
 Web Interface
 ```
 
----
+\---
 
 ## 🏗️ Project Architecture
 
@@ -169,7 +215,7 @@ Web Interface
                                │
                                ▼
                     ┌──────────────────────┐
-                    │     ml_core.py       │
+                    │     ml\_core.py       │
                     └──────────┬───────────┘
                                │
              ┌─────────────────┼─────────────────┐
@@ -193,16 +239,16 @@ Web Interface
                                           Final Prediction
 ```
 
----
+\---
 
 ## 📊 Dataset
 
 The project uses symptom-based disease classification data containing:
 
-- Training data
-- Testing data
-- Symptom features
-- Disease labels
+* Training data
+* Testing data
+* Symptom features
+* Disease labels
 
 The current trained system contains:
 
@@ -219,7 +265,7 @@ dataset/
 └── Testing.csv
 ```
 
----
+\---
 
 ## 🤖 Model Artifacts
 
@@ -227,15 +273,15 @@ All trained model artifacts are stored in the `models/` directory.
 
 ```text
 models/
-├── decision_tree.joblib
-├── gradient_boosting.joblib
+├── decision\_tree.joblib
+├── gradient\_boosting.joblib
 ├── knn.joblib
-├── label_encoder.joblib
-├── logistic_regression.joblib
+├── label\_encoder.joblib
+├── logistic\_regression.joblib
 ├── metadata.json
-├── naive_bayes.joblib
+├── naive\_bayes.joblib
 ├── preprocessor.joblib
-├── random_forest.joblib
+├── random\_forest.joblib
 └── svc.joblib
 ```
 
@@ -247,47 +293,47 @@ Example startup message:
 Loaded 7 models, 131 symptoms, 41 diseases.
 ```
 
----
+\---
 
 ## 🖥️ Web Application Features
 
-### 1. Symptom Selection
+### 1\. Symptom Selection
 
 Users can:
 
-- Search through available symptoms
-- Select multiple symptoms
-- Remove selected symptoms
-- View the number of selected symptoms
+* Search through available symptoms
+* Select multiple symptoms
+* Remove selected symptoms
+* View the number of selected symptoms
 
 The application recommends selecting at least **3 symptoms** for a more informative prediction.
 
-### 2. Patient Information
+### 2\. Patient Information
 
 The interface optionally accepts:
 
-- Age
-- Gender
-- Height
-- Weight
+* Age
+* Gender
+* Height
+* Weight
 
 These values are validated and displayed as contextual information.
 
 **Important:** the current trained model uses symptoms only. These demographic fields do **not** influence the machine learning prediction.
 
-### 3. Prediction Result
+### 3\. Prediction Result
 
 The application displays:
 
-- Predicted disease
-- Prediction confidence
-- Confidence level
-- Top probable conditions
-- Individual model predictions
-- Number of symptoms used
-- Relevant warnings
+* Predicted disease
+* Prediction confidence
+* Confidence level
+* Top probable conditions
+* Individual model predictions
+* Number of symptoms used
+* Relevant warnings
 
-### 4. Confidence Levels
+### 4\. Confidence Levels
 
 The application categorizes confidence as:
 
@@ -299,7 +345,7 @@ Low      < 40%
 
 These thresholds are application-level indicators and should not be interpreted as medical certainty.
 
----
+\---
 
 ## 🔌 API Endpoints
 
@@ -328,7 +374,7 @@ Example request:
 
 ```json
 {
-  "symptoms": ["fever", "headache", "fatigue"],
+  "symptoms": \["fever", "headache", "fatigue"],
   "patient": {
     "age": 25,
     "gender": "male"
@@ -344,17 +390,17 @@ Example response structure:
 {
   "prediction": "Example Disease",
   "confidence": 0.82,
-  "confidence_level": "high",
-  "model_predictions": {},
-  "class_probabilities": {},
-  "symptoms_used": 3,
-  "patient_info_used_by_model": false,
-  "warnings": [],
+  "confidence\_level": "high",
+  "model\_predictions": {},
+  "class\_probabilities": {},
+  "symptoms\_used": 3,
+  "patient\_info\_used\_by\_model": false,
+  "warnings": \[],
   "disclaimer": "..."
 }
 ```
 
----
+\---
 
 ## 📁 Project Structure
 
@@ -362,8 +408,8 @@ Example response structure:
 disease-prediction/
 │
 ├── app.py
-├── ml_core.py
-├── trained_model.py
+├── ml\_core.py
+├── trained\_model.py
 ├── requirements.txt
 ├── README.md
 │
@@ -372,19 +418,19 @@ disease-prediction/
 │   └── Testing.csv
 │
 ├── models/
-│   ├── decision_tree.joblib
-│   ├── gradient_boosting.joblib
+│   ├── decision\_tree.joblib
+│   ├── gradient\_boosting.joblib
 │   ├── knn.joblib
-│   ├── label_encoder.joblib
-│   ├── logistic_regression.joblib
+│   ├── label\_encoder.joblib
+│   ├── logistic\_regression.joblib
 │   ├── metadata.json
-│   ├── naive_bayes.joblib
+│   ├── naive\_bayes.joblib
 │   ├── preprocessor.joblib
-│   ├── random_forest.joblib
+│   ├── random\_forest.joblib
 │   └── svc.joblib
 │
 ├── reports/
-│   ├── ensemble_confusion_matrix.csv
+│   ├── ensemble\_confusion\_matrix.csv
 │   └── metrics.json
 │
 ├── static/
@@ -397,44 +443,44 @@ disease-prediction/
 │   └── index.html
 │
 └── tests/
-    └── test_app.py
+    └── test\_app.py
 ```
 
----
+\---
 
 ## ⚙️ Technologies Used
 
 ### Backend
 
-- Python
-- Flask
-- Gunicorn
+* Python
+* Flask
+* Gunicorn
 
 ### Machine Learning
 
-- NumPy
-- Pandas
-- Scikit-learn
-- Joblib
+* NumPy
+* Pandas
+* Scikit-learn
+* Joblib
 
 ### Frontend
 
-- HTML5
-- CSS3
-- JavaScript
-- Jinja2
+* HTML5
+* CSS3
+* JavaScript
+* Jinja2
 
 ### Deployment
 
-- Git
-- GitHub
-- Render
+* Git
+* GitHub
+* Render
 
----
+\---
 
 ## 🚀 Local Installation
 
-### 1. Clone the repository
+### 1\. Clone the repository
 
 ```bash
 git clone https://github.com/aadarshmishra0709-web/disease-prediction.git
@@ -446,7 +492,7 @@ Navigate into the project:
 cd disease-prediction
 ```
 
-### 2. Create a virtual environment
+### 2\. Create a virtual environment
 
 Windows:
 
@@ -457,7 +503,7 @@ python -m venv venv
 Activate it:
 
 ```bash
-venv\Scripts\activate
+venv\\Scripts\\activate
 ```
 
 Linux/macOS:
@@ -467,13 +513,13 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-### 3. Install dependencies
+### 3\. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Run the application
+### 4\. Run the application
 
 ```bash
 python app.py
@@ -485,7 +531,7 @@ The application will be available at:
 http://127.0.0.1:5000
 ```
 
----
+\---
 
 ## 🌐 Deployment
 
@@ -530,14 +576,14 @@ Machine Learning Models
 Public HTTPS Application
 ```
 
----
+\---
 
 ## 🧪 Testing
 
 The project includes automated tests under:
 
 ```text
-tests/test_app.py
+tests/test\_app.py
 ```
 
 Run the tests using:
@@ -552,7 +598,7 @@ If `pytest` is not installed:
 pip install pytest
 ```
 
----
+\---
 
 ## 📈 Reports
 
@@ -560,13 +606,13 @@ Model evaluation outputs are stored in:
 
 ```text
 reports/
-├── ensemble_confusion_matrix.csv
+├── ensemble\_confusion\_matrix.csv
 └── metrics.json
 ```
 
 These files can be used to analyze model performance and the ensemble prediction behavior.
 
----
+\---
 
 ## 🔐 Input Validation
 
@@ -600,103 +646,103 @@ Other
 
 The application also:
 
-- Removes duplicate symptoms
-- Rejects unknown symptoms
-- Requires at least one symptom
-- Validates numeric values
-- Handles missing model artifacts
-- Handles prediction errors
+* Removes duplicate symptoms
+* Rejects unknown symptoms
+* Requires at least one symptom
+* Validates numeric values
+* Handles missing model artifacts
+* Handles prediction errors
 
----
+\---
 
 ## ⚠️ Limitations
 
 This project has several important limitations.
 
-### 1. Not a medical diagnostic system
+### 1\. Not a medical diagnostic system
 
 The predictions are generated by machine learning models trained on a dataset. They should not be treated as professional medical diagnoses.
 
-### 2. Dataset limitations
+### 2\. Dataset limitations
 
 Model performance depends heavily on the quality, coverage, balance, and representativeness of the training dataset.
 
-### 3. Symptoms-only prediction
+### 3\. Symptoms-only prediction
 
 The current model uses symptoms as its predictive features. It does not incorporate:
 
-- Laboratory tests
-- Medical imaging
-- Clinical history
-- Medication history
-- Vital signs
-- Doctor examination
-- Electronic health records
+* Laboratory tests
+* Medical imaging
+* Clinical history
+* Medication history
+* Vital signs
+* Doctor examination
+* Electronic health records
 
-### 4. Demographic information is not currently used
+### 4\. Demographic information is not currently used
 
 Age, gender, height, and weight are accepted by the interface but do not influence the current prediction model.
 
-### 5. Confidence is not medical certainty
+### 5\. Confidence is not medical certainty
 
 The reported confidence represents the model's probability output and ensemble behavior. It does not represent the probability that a patient actually has a disease.
 
----
+\---
 
 ## 🔮 Future Improvements
 
 Potential future development includes:
 
-- Larger and more diverse clinical datasets
-- Additional machine learning algorithms
-- Hyperparameter optimization
-- Cross-validation
-- Model calibration
-- Explainable AI techniques
-- SHAP-based feature explanations
-- Integration of laboratory test results
-- Integration of medical imaging
-- Patient history features
-- Better uncertainty estimation
-- Improved model monitoring
-- Authentication and secure user management
-- Database integration
-- More comprehensive automated testing
+* Larger and more diverse clinical datasets
+* Additional machine learning algorithms
+* Hyperparameter optimization
+* Cross-validation
+* Model calibration
+* Explainable AI techniques
+* SHAP-based feature explanations
+* Integration of laboratory test results
+* Integration of medical imaging
+* Patient history features
+* Better uncertainty estimation
+* Improved model monitoring
+* Authentication and secure user management
+* Database integration
+* More comprehensive automated testing
 
----
+\---
 
 ## 📚 Learning Outcomes
 
 This project demonstrates practical implementation of:
 
-- Data preprocessing
-- Feature engineering
-- Supervised machine learning
-- Multi-model classification
-- Ensemble learning
-- Probability averaging
-- Model serialization using Joblib
-- Flask application development
-- REST API development
-- Frontend and backend integration
-- Input validation
-- Model deployment
-- Git and GitHub workflow
-- Cloud deployment using Render
+* Data preprocessing
+* Feature engineering
+* Supervised machine learning
+* Multi-model classification
+* Ensemble learning
+* Probability averaging
+* Model serialization using Joblib
+* Flask application development
+* REST API development
+* Frontend and backend integration
+* Input validation
+* Model deployment
+* Git and GitHub workflow
+* Cloud deployment using Render
 
----
+\---
 
 ## 👨‍💻 Author
 
 **Aadarsh Mishra**
 
-Computer Science & Engineering
+Computer Science \& Engineering
 
 ### Project
 
 **Disease Prediction Using Machine Learning**
 
----
+\---
 
 ## 📄 License
 
@@ -704,7 +750,7 @@ This project is intended for educational and research purposes.
 
 Before using the project or its dataset for commercial or clinical applications, verify the applicable dataset, software, and data-use licenses.
 
----
+\---
 
 ## ⚠️ Disclaimer
 
@@ -713,3 +759,4 @@ This project is an educational and research demonstration of machine learning fo
 **It is not intended to diagnose, treat, cure, or prevent any disease.**
 
 Always consult a qualified healthcare professional for medical advice, diagnosis, and treatment.
+
