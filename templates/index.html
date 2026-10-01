@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Disease Prediction Demo</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<header class="hero">
+  <h1>Disease Prediction</h1>
+  <p>Select your symptoms and we will estimate the most likely condition.</p>
+</header>
+
+<main class="container">
+  {% if load_error %}
+  <div class="alert alert-error">Model files could not be loaded ({{ load_error }}). Run <code>python trained_model.py</code> and restart the app.</div>
+  {% endif %}
+
+  <div class="notice">
+    <strong>Educational demo.</strong> {{ disclaimer }}
+  </div>
+
+  <form id="predict-form" novalidate>
+    <section class="card">
+      <h2>Patient information <span class="tag">optional</span></h2>
+      <p class="hint">The training dataset contains only symptoms, so these details are <strong>not used by the model</strong>; they are validated and shown in the result summary only.</p>
+      <div class="grid">
+        <label>Age (years)
+          <input type="number" id="age" min="{{ limits.age[0] }}" max="{{ limits.age[1] }}" step="1" placeholder="e.g. 34"></label>
+        <label>Gender
+          <select id="gender">
+            <option value="">Select…</option><option value="male">Male</option>
+            <option value="female">Female</option><option value="other">Other</option>
+          </select></label>
+        <label>Height (cm)
+          <input type="number" id="height" min="{{ limits.height[0] }}" max="{{ limits.height[1] }}" step="0.1" placeholder="e.g. 170"></label>
+        <label>Weight (kg)
+          <input type="number" id="weight" min="{{ limits.weight[0] }}" max="{{ limits.weight[1] }}" step="0.1" placeholder="e.g. 65"></label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Symptoms <span class="counter" id="sym-counter">0 selected</span></h2>
+      <input type="search" id="symptom-search" placeholder="Search {{ symptoms|length }} symptoms…" autocomplete="off" aria-label="Search symptoms">
+      <div id="selected-chips" class="chips" aria-live="polite"></div>
+      <div id="symptom-list" class="symptom-list">
+        {% for s in symptoms %}
+        <label class="symptom" data-label="{{ s.label|lower }}">
+          <input type="checkbox" name="symptom" value="{{ s.key }}"><span>{{ s.label }}</span>
+        </label>
+        {% endfor %}
+        <p id="no-match" class="hint" hidden>No symptoms match your search.</p>
+      </div>
+      <p class="hint">Tip: choose at least {{ recommended }} symptoms for a more reliable estimate.</p>
+    </section>
+
+    <div id="error-box" class="alert alert-error" role="alert" hidden></div>
+
+    <div class="actions">
+      <button type="submit" id="predict-btn" class="btn btn-primary"><span class="spinner" hidden></span><span class="btn-text">Predict</span></button>
+      <button type="button" id="reset-btn" class="btn btn-secondary">Reset</button>
+    </div>
+  </form>
+
+  <section id="result" class="card result" hidden aria-live="polite">
+    <h2>Result</h2>
+    <p class="label">Predicted Disease:</p>
+    <p class="disease" id="res-disease"></p>
+    <p class="label">Confidence:</p>
+    <div class="conf-row"><span class="conf-value" id="res-conf"></span><span class="badge" id="res-level"></span></div>
+    <div id="res-warnings"></div>
+    <h3>Most likely conditions</h3>
+    <div id="res-probs"></div>
+    <details><summary>Individual model votes</summary><table id="res-models"><thead><tr><th>Model</th><th>Top prediction</th><th>Probability</th></tr></thead><tbody></tbody></table></details>
+    <p id="res-patient" class="hint"></p>
+  </section>
+</main>
+
+<footer><p>{{ disclaimer }}</p></footer>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
